@@ -80,7 +80,7 @@ function App() {
             </button>
              
           
-          <img src={weatherFonts[weather.weather[0].id]} className='bg-cover bg-center min-w-fit min-h-[125%] absolute dark:brightness-50 duration-500 transition' alt="" />
+          <img src={weatherFonts[weather.weather[0].id]} className='bg-cover object-cover bg-center min-h-[125%] absolute dark:brightness-50 duration-500 transition' alt="" />
             <WeatherCont weather={weather} />         
             </main>
       )}
