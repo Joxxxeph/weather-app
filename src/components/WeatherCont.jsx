@@ -15,6 +15,8 @@ const WeatherCont = ({ weather }) => {
         }
     }
 
+    console.log(weather);
+
     const handleConverteTemp = () => {
         setIsCelsius(!isCelsius)
     }
@@ -44,7 +46,7 @@ const WeatherCont = ({ weather }) => {
         </div>
         <div className="justify-center m-5">
             <button onClick={handleConverteTemp} className="drop-shadow-xl bg-white text-blue-500 w-36 rounded-full py-1.5 duration-500 dark:text-white transition-colors dark:bg-blue-500">
-                 {isCelsius ? "Cambiar a °F" : "Cambiar a °C"}
+                 {isCelsius ? "Change to °F" : "Change to °C"}
                  </button>
         </div>
     </section>

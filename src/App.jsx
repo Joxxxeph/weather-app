@@ -12,6 +12,8 @@ function App() {
         const lat = position.coords.latitude
         const lon = position.coords.longitude
         const API_KEY = "00f95e83f7825fab23788b4593239bc5";
+
+        
         
         axios
             .get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
@@ -80,7 +82,7 @@ function App() {
             </button>
              
           
-          <img src={weatherFonts[weather.weather[0].id]} className='bg-cover object-cover bg-center min-h-[125%] absolute dark:brightness-50 duration-500 transition' alt="" />
+          <img src={weatherFonts[weather.weather[0].id]} className='bg-cover object-cover bg-center min-w-full min-h-[125%] absolute dark:brightness-50 duration-500 transition' alt="" />
             <WeatherCont weather={weather} />         
             </main>
       )}
