@@ -15,7 +15,6 @@ const WeatherCont = ({ weather }) => {
         }
     }
 
-    console.log(weather);
 
     const handleConverteTemp = () => {
         setIsCelsius(!isCelsius)
