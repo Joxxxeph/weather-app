@@ -6,7 +6,7 @@ import WeatherCont from './components/WeatherCont'
 
 function App() {
     const [weather, setWeather] = useState(null)
-    const [theme, setTheme] = useState('light')
+    
 
     const success = (position) => {
         const lat = position.coords.latitude
@@ -21,20 +21,9 @@ function App() {
             .then(({data}) => setWeather(data))
             .catch((error) => console.log(error))
     }
-
-    useEffect(() => {
-      if (theme === "darck") {
-        document.querySelector("html").classList.add("dark")
-      } else {
-        document.querySelector("html").classList.remove("dark")
-
-      }
-    }, [theme])
     
 
-    const handleTheme = () => {
-      setTheme(prevTheme => prevTheme === "light" ? "darck" : "light")
-    }
+    
 
 
     useEffect(() => {
@@ -69,21 +58,19 @@ function App() {
     <div>
       {weather === null ? (
         <div className='min-h-screen min-w-full bg-gray-700 flex flex-col justify-center items-center'>
-          <img src="/Vector.png" alt="" />
-          <h2 className='text-white text-3xl p-4'>Weather App</h2>
+          <img src="/Vector.png" alt="" className='animate-fade-in' />
+          <h2 className='text-white text-3xl p-4 animate-fade-in'>Weather App</h2>
         </div>
         ) : (
           <main
           className='font-["Lato"] flex px-4 justify-center items-center min-h-screen text-black'
           >
             
-            <button onClick={handleTheme} className='z-10 absolute top-20 font-bold text-black rounded-full bg-gray-500/30 px-5 py-1 dark:bg-white/30 dark:text-white transition duration-500'>
-            {theme === "light" ? "Dark" : "Light"}
-            </button>
+            
              
           
           <img src={weatherFonts[weather.weather[0].id]} className='bg-cover object-cover bg-center min-w-full min-h-[125%] absolute dark:brightness-50 duration-500 transition' alt="" />
-            <WeatherCont weather={weather} />         
+            <WeatherCont weather={weather} setWeather={setWeather}/>         
             </main>
       )}
       </div>
